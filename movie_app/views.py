@@ -14,13 +14,13 @@ def director_view(request):
 
 @api_view(['GET'])
 def movie_view(request):
-    movie = Director.objects.all()
+    movie = Movie.objects.all()
     serializer = MovieSerializers(movie, many=True)
     return Response(data=serializer.data)
 
 @api_view(['GET'])
 def review_view(request):
-    review = Director.objects.all()
+    review = Review.objects.all()
     serializer = ReviewSerializers(review, many=True)
     return Response(data=serializer.data)
 
@@ -41,6 +41,15 @@ def movie_detail(request, id):
 @api_view(['Get'])
 def review_detail(request, id):
     review = Review.objects.get(id=id)
-    data = ReviewSerializers(review).data
+    data = ReviewSerializers(review, many = False)
     return Response(data=data)
+
+@api_view(['GET'])
+def review_movie(request):
+    movie = Movie.objects.all()
+    serializers = MovieReviewSerializers(movie, many=True)
+    return Response(data=serializers)
+
+
+
 

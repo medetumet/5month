@@ -11,8 +11,20 @@ class Movie(models.Model):
     duration=models.FloatField()
     director=models.ForeignKey(Director,on_delete=models.CASCADE)
 
+RATING = (
+    ('1', 1),
+    ('2', 2),
+    ('3', 3),
+    ('4', 4),
+    ('5', 5)
+)
+
 class Review(models.Model):
     text=models.TextField()
     movie=models.ForeignKey(Movie,on_delete=models.CASCADE)
+    stars = models.IntegerField(default=5, choices=RATING)
+
+
+
 
 

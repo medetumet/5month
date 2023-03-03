@@ -25,9 +25,8 @@ urlpatterns = [
     path('api/v1/movies/', movie_view),
     path('api/v1/movies/<int:id>/', movie_detail),
     path('api/v1/reviews/', review_view),
-    path('api/v1/reviews/<int:id>/', review_detail)
-
-
+    path('api/v1/reviews/<int:id>/', review_detail),
+    path('api/v1/movies/reviews/.', review_movie),
 
 
 
