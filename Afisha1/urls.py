@@ -16,18 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from movie_app.views import *
+from User.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/directors/', director_view),
-    path('api/v1/directors/<int:id>/', director_detail),
-    path('api/v1/movies/', movie_view),
-    path('api/v1/movies/<int:id>/', movie_detail),
-    path('api/v1/reviews/', review_view),
-    path('api/v1/reviews/<int:id>/', review_detail),
-    path('api/v1/movies/reviews/.', review_movie),
+    # path('api/v1/test/', ),
+    path('api/v1/movie/', movies_view),
+    path('api/v1/director/', movies_view),
+    path('api/v1/review/', movies_view),
+    path('api/v1/movies/ <int:id>/',movie_detail_view),
+    path('api/v1/director/ <int:id>/',director_detail_view),
+    path('api/v1/review/ <int:id>/',review_detail_view)
 
+    # path('api/v1/users/registration/', registration_view),
+    # path('api/v1/users/authorization/', authorization_view),
+    # # path('api/v1/categories/', Categ.as_view()),
+    # # path('api/v1/categories/<int:pk>/', views.CategoryDetailAPIView.as_view()),
+    # path('api/v1/tags/', TagmodelViewSet.as_view({'get': 'list', 'post': 'create'})),
+    # path('api/v1/tags/<int:pk>/', TagmodelViewSet.as_view({'get': 'retrieve', 'patch': 'update', 'partial_update', 'put': 'update', 'delete': 'destroy'})),
 
 
 

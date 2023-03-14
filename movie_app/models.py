@@ -25,6 +25,10 @@ class Review(models.Model):
     stars = models.IntegerField(default=5, choices=RATING)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
 
 
