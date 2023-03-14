@@ -10,7 +10,7 @@ from rest_framework.authtoken.models import Token
 @api_view(['POST'])
 def registration_view(request):
     serializer = UserValidateSerialiser(data=request.data)
-    serializer.is_valid(raise_exeption=True)
+    serializer.is_valid(raise_exception=True)
     User.objects.create_user(username=serializer.validated_data.get('username'),
                              password=serializer.validated_data.get('password'))
     # User.objects.create_user(**serializer.validated_data)
@@ -19,9 +19,9 @@ def registration_view(request):
 @api_view(['POST'])
 def authorization_view(request):
     serializer = UserLoginSerialiser(data=request.data)
-    serializer.is_valid(raise_exeption=True)
-    user = authenticate(username=serializer.valiated_data.get('username'),
-                        password=serializer.validate_data.get('password'))
+    serializer.is_valid(raise_exception=True)
+    user = authenticate(username=serializer.validated_data.get('username'),
+                        password=serializer.validated_data.get('password'))
     # user = authenticate(**serializer.validated_data)
     if user:
         token, created = Token.objects.get_or_create(user=user)

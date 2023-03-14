@@ -28,9 +28,8 @@ urlpatterns = [
     path('api/v1/movies/ <int:id>/',movie_detail_view),
     path('api/v1/director/ <int:id>/',director_detail_view),
     path('api/v1/review/ <int:id>/',review_detail_view)
-
-    # path('api/v1/users/registration/', registration_view),
-    # path('api/v1/users/authorization/', authorization_view),
+    path('api/v1/users/registration/', registration_view),
+    path('api/v1/users/authorization/', authorization_view),
     # # path('api/v1/categories/', Categ.as_view()),
     # # path('api/v1/categories/<int:pk>/', views.CategoryDetailAPIView.as_view()),
     # path('api/v1/tags/', TagmodelViewSet.as_view({'get': 'list', 'post': 'create'})),
